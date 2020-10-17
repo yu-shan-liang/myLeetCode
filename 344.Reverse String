@@ -1,0 +1,18 @@
+void reverseString(char* s, int sSize)
+{
+    char*  start;
+    char*  end;
+    char   temp;
+    
+    start = s;
+    end   = s + sSize - 1;
+
+    while( start < end )
+    {
+        temp   = *start;
+        *start = *end;
+        *end   = temp;
+        start++;
+        end--;
+    }
+}
