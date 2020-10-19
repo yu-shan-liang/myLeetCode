@@ -1,0 +1,40 @@
+int reverse(int x)
+{
+    int sign;
+    int i;
+    int temp;
+    int output = 0;
+    
+    if( x == 0 )
+    {
+        return x;
+    }
+    else if( x > 0 )
+    {
+        sign = 1;
+        x    = -x;
+    }
+    else
+    {
+        sign = -1;
+    }
+        
+    
+    while( x != 0 )
+    {
+        temp = x % 10;
+        
+        if( output < ( INT_MIN - temp ) / 10 )
+        {
+            return 0; //overflow
+        }
+        else
+        {
+            output = output * 10 + temp;
+        }
+        
+        x = ( x - temp ) / 10;
+    }
+    
+    return sign * abs( output );
+}
